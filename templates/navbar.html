@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-nexora">
+  <div class="container">
+
+    <a class="navbar-brand" href="/">NeXora</a>
+
+    <div class="d-flex align-items-center flex-wrap gap-2">
+
+      {% if username %}
+
+        <a href="/create_post" class="btn btn-light btn-sm">
+          <i class="bi bi-plus-circle"></i> Create Post
+        </a>
+
+        <a href="/bookmarks" class="btn btn-light btn-sm">
+          <i class="bi bi-bookmark-fill"></i> Saved
+        </a>
+
+        <a href="/notifications" class="btn btn-light btn-sm position-relative">
+          <i class="bi bi-bell-fill"></i>
+          {% if unread_count and unread_count > 0 %}
+          <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+            {{ unread_count }}
+          </span>
+          {% endif %}
+        </a>
+
+        <a href="/profile" class="btn btn-success btn-sm">
+          <i class="bi bi-person-circle"></i> {{ username }}
+        </a>
+
+        <a href="/toggle_theme" class="btn btn-dark btn-sm">
+          {% if theme == 'dark' %}☀️{% else %}🌙{% endif %}
+        </a>
+
+        <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+
+      {% else %}
+
+        <a href="/login" class="btn btn-light btn-sm">Login</a>
+        <a href="/register" class="btn btn-warning btn-sm">Register</a>
+
+        <a href="/toggle_theme" class="btn btn-dark btn-sm">
+          {% if theme == 'dark' %}☀️{% else %}🌙{% endif %}
+        </a>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+</nav>
